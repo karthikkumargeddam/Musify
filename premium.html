@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Musify Payment Options</title>
+</head>
+<body>
+    <h1>Musify - pay through your convinient mode</h1>
+    <div class="payment-options">
+        <div class="payment-option" id="option1" data-title="UPI" data-description="Unified Payments Interface for instant bank transfers.">
+            <h3>UPI</h3>
+            <p>Unified Payments Interface for instant bank transfers.</p>
+        </div>
+        <div class="payment-option" id="option2" data-title="Paytm" data-description="Popular Indian mobile wallet and payment gateway.">
+            <h3>Paytm</h3>
+            <p>Popular Indian mobile wallet and payment gateway.</p>
+        </div>
+        <div class="payment-option" id="option3" data-title="Google Pay" data-description="Secure and convenient mobile payment service by Google.">
+            <h3>Google Pay</h3>
+            <p>Secure and convenient mobile payment service by Google.</p>
+        </div>
+        <div class="payment-option" id="option4" data-title="PhonePe" data-description="Indian digital payments platform and mobile wallet.">
+            <h3>PhonePe</h3>
+            <p>Indian digital payments platform and mobile wallet.</p>
+        </div>
+        <div class="payment-option" id="option5" data-title="Credit and Debit Cards" data-description="Visa, MasterCard, American Express, Discover, etc.">
+            <h3>Credit and Debit Cards</h3>
+            <p>Visa, MasterCard, American Express, Discover, etc.</p>
+        </div>
+        <div class="payment-option" id="option6" data-title="Amazon Pay" data-description="Amazon's digital wallet and payment platform.">
+            <h3>Amazon Pay</h3>
+            <p>Amazon's digital wallet and payment platform.</p>
+        </div>
+    </div>
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.payment-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.payment-option {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 45%;
+}
+
+.payment-option h3 {
+    margin-bottom: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+<script>
+const paymentOptions = document.querySelectorAll(".payment-option");
+const modal = document.getElementById("payment-modal");
+const closeModal = document.querySelector(".close");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+
+paymentOptions.forEach(option => {
+    option.addEventListener("click", () => {
+        const title = option.getAttribute("data-title");
+        const description = option.getAttribute("data-description");
+
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modal.style.display = "block";
+    });
+});
+
+// Close the modal when the "X" button is clicked
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close the modal when clicking outside the modal content
+window.addEventListener("click", event => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+</script>
+</body>
+</html>

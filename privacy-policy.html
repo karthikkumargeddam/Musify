@@ -1,0 +1,113 @@
+<!-- Privacy Policy Popup -->
+<div class="popup" id="privacyPopup">
+  <div class="popup-content">
+    <div class="popup-header">
+      <h3>Privacy Policy</h3>
+      <span class="close" id="closePopup">&times;</span>
+    </div>
+    <div class="popup-body">
+      <p>Our music application takes your privacy seriously. We are committed to protecting your personal information and providing transparency about how we collect and use your data. Here are some key points from our privacy policy:</p>
+      <ul>
+        <li>We collect information about your usage of our application, including your interactions with content and features.</li>
+        <li>We use cookies and other technologies to personalize your experience and deliver relevant ads.</li>
+        <li>We may share your information with third-party service providers, such as analytics providers and ad networks.</li>
+        <li>We may disclose your information as required by law or in response to a subpoena, court order, or other legal process.</li>
+      </ul>
+      <p>For more information, please review our full <a href="#" target="_blank">privacy policy</a>.</p>
+    </div>
+  </div>
+</div>
+<style>
+/* Styles for the privacy policy popup */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.popup-header h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.popup-header .close {
+  font-size: 30px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+
+.popup-header .close:hover,
+.popup-header .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-body {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.popup-body ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.popup-body li {
+  margin-bottom: 10px;
+}
+
+.popup-body a {
+  color: #1db954;
+  text-decoration: none;
+}
+
+.popup-body a:hover {
+  text-decoration: underline;
+}
+</style>
+<script>
+// Open privacy policy popup
+document.getElementById("privacyPolicyBtn").addEventListener("click", function() {
+  document.getElementById("privacyPopup").style.display = "block";
+});
+
+// Close popup when close button or outside of popup is clicked
+var closeButtons = document.getElementsByClassName("close");
+for (var i = 0; i < closeButtons.length; i++) {
+  closeButtons[i].addEventListener("click", function() {
+    document.getElementById("privacyPopup").style.display = "none";
+  });
+}
+
+window.addEventListener("click", function(event) {
+  var popup = document.getElementById("privacyPopup");
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+});
+</script>

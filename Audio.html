@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Music App</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Music App</h1>
+      <div class="song-list">
+        <div class="song">
+          <h2>Song 1</h2>
+          <audio id="song1" src="song1.mp3"></audio>
+          <button onclick="playAudio('song1')">Play</button>
+          <button onclick="pauseAudio('song1')">Pause</button>
+        </div>
+        <div class="song">
+          <h2>Song 2</h2>
+          <audio id="song2" src="song2.mp3"></audio>
+          <button onclick="playAudio('song2')">Play</button>
+          <button onclick="pauseAudio('song2')">Pause</button>
+        </div>
+        <div class="song">
+          <h2>Song 3</h2>
+          <audio id="song3" src="song3.mp3"></audio>
+          <button onclick="playAudio('song3')">Play</button>
+          <button onclick="pauseAudio('song3')">Pause</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+ <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.song-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.song {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+}
+
+.song h2 {
+  margin-top: 0;
+}
+
+button {
+  margin: 0 10px;
+}
+</style>
+<script>
+function playAudio(id) {
+  var audio = document.getElementById(id);
+  audio.play();
+}
+
+function pauseAudio(id) {
+  var audio = document.getElementById(id);
+  audio.pause();
+}
+</script>
+</html>

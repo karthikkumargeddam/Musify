@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Musify Playlists</title>
+    <style>
+      /* Styles for the header */
+      header {
+        background: linear-gradient(135deg, #3498db, #e74c3c);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      /* Styles for the main section */
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 0;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        max-width: 500px;
+        text-align: justify;
+      }
+
+      /* Styles for the playlists */
+      .playlist {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .playlist-item {
+        background: linear-gradient(135deg, #3498db, #e74c3c);
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        margin: 20px;
+        padding: 20px;
+        max-width: 300px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .playlist-item:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .playlist-item h3 {
+        margin-top: 0;
+      }
+
+      .playlist-item p {
+        margin-bottom: 0;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>MusicVerse Playlists</h1>
+    </header>
+
+    <main>
+      <div class="playlist" id="pop-playlist">
+        <div class="playlist-item">
+          <h3>Top Pop Hits 2023</h3>
+          <p>Listen to the biggest pop songs of the year, including tracks from Taylor Swift, Ed Sheeran, and Dua Lipa.</p>
+        </div>
+        <div class="playlist-item">
+          <h3>Chill Pop Vibes</h3>
+          <p>Relax and unwind with this playlist of laid-back pop tracks, featuring artists like Billie Eilish, Lorde, and Harry Styles.</p>
+        </div>
+        <div class="playlist-item">
+          <h3>Pop Punk Anthems</h3>
+          <p>Rock out with this playlist of high-energy pop punk tracks, featuring bands like Blink-182, Green Day, and Paramore.</p>
+        </div>
+      </div>
+
+      <div class="playlist" id="rock-playlist">
+        <div class="playlist-item">
+          <h3>Classic Rock Essentials</h3>
+          <p>Travel back in time with this playlist of iconic rock tracks from the 60s and 70s, featuring legends like Led Zeppelin, The Beatles, and The Rolling Stones.</p>
+        </div>
+        <div class="playlist-item">
+          <h3>New Rock Revolution</h3>
+          <p>Discover the latest and greatest rock tracks, featuring up-and-coming bands like Greta Van Fleet, The Struts, and Royal Blood.</p>
+        </div>
+        <div class="playlist-item">
+<h3>90s Alternative Throwback</h3>
+          <p>Take a trip down memory lane with this playlist of 90s alternative classics, featuring bands like Nirvana, Pearl Jam, and Smashing Pumpkins.</p>
+        </div>
+      </div>
+  <div class="playlist" id="hiphop-playlist">
+    <div class="playlist-item">
+      <h3>Hot Hip Hop Hits 2023</h3>
+      <p>Stay up to date with the latest hip hop tracks, featuring artists like Drake, Cardi B, and Travis Scott.</p>
+    </div>
+    <div class="playlist-item">
+      <h3>Old School Hip Hop Essentials</h3>
+      <p>Get schooled in the classics with this playlist of old school hip hop tracks from the 80s and 90s, featuring legends like Run-DMC, Tupac, and The Notorious B.I.G.</p>
+    </div>
+    <div class="playlist-item">
+      <h3>Alternative Hip Hop Vibes</h3>
+      <p>Explore the alternative side of hip hop with this playlist of tracks from artists like Tyler, The Creator, Brockhampton, and Earl Sweatshirt.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get all playlist elements
+  const playlists = document.querySelectorAll('.playlist');
+
+  // Loop through all playlist elements
+  playlists.forEach(playlist => {
+    // Get all playlist item elements for this playlist
+    const playlistItems = playlist.querySelectorAll('.playlist-item');
+
+    // Loop through all playlist item elements for this playlist
+    playlistItems.forEach(item => {
+      // Add click event listener to each playlist item
+      item.addEventListener('click', () => {
+        // Toggle the hidden class on all playlist item elements
+        playlistItems.forEach(item => item.classList.toggle('hidden'));
+
+        // Toggle the hidden class on the clicked playlist item element
+        item.classList.toggle('hidden');
+      });
+    });
+  });
+</script>
+  </body>
+</html>
+
+
+
+

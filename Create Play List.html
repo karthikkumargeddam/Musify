@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Musify - Create Playlist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 3rem;
+        letter-spacing: 0.1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-dark text-white">
+      <div class="container">
+        <h1 class="display-4">Musify - Create Playlist</h1>
+        <nav>
+          <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="Playlists.html">Playlists</a></li>
+            <li class="nav-item"><a class="nav-link" href="Artists.html">Artists</a></li>
+            <li class="nav-item"><a class="nav-link" href="Genres.html">Genres</a></li>
+            <li class="nav-item"><a class="nav-link" href="Sign Out.html">Sign Out</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container my-4">
+      <form>
+        <div class="form-group">
+          <label for="playlist-name">Playlist Name:</label>
+          <input type="text" class="form-control" id="playlist-name" placeholder="Enter playlist name">
+        </div>
+        <button type="submit" class="btn btn-primary">Create Playlist</button>
+      </form>
+    </main>
+  </body>
+</html>

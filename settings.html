@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Music App - Legal Information</title>
+</head>
+<body>
+  <div class="app">
+    <h1>Musify</h1>
+    <p>Musify is a music streaming application offering a vast collection of tracks from various genres, all licensed under Creative Commons.</p>
+    <button id="show-legal-btn">Legal Information</button>
+    <div id="legal-info" class="hidden">
+      <h2>Legal Information</h2>
+      <p>All music tracks in this application are licensed under Creative Commons.</p>
+      <p>For more information, please visit <a href="https://creativecommons.org/licenses/" target="_blank">Musify.org/licenses</a>.</p>
+    </div>
+    <footer>
+      <p>&copy; 2023 Musify. All rights reserved.</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .app {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #legal-info {
+    margin-top: 20px;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+  }
+  </style>
+<script>
+  // Function to update the dark mode
+  function updateDarkMode() {
+    const darkMode = document.getElementById('color-scheme-dark').checked;
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('dark-mode', 'true');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.removeItem('dark-mode');
+    }
+  }
+
+  // Attach event listeners to the color scheme radio buttons
+  if (document.getElementById('color-scheme-dark') && document.getElementById('color-scheme-light')) {
+    document.getElementById('color-scheme-dark').addEventListener('change', updateDarkMode);
+    document.getElementById('color-scheme-light').addEventListener('change', updateDarkMode);
+  }
+
+  // Load the user's preference from localStorage
+  document.addEventListener('DOMContentLoaded', () => {
+    const darkMode = localStorage.getItem('dark-mode') === 'true';
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+      if (document.getElementById('color-scheme-dark')) {
+        document.getElementById('color-scheme-dark').checked = true;
+      }
+    }
+  });
+</script>
+</body>
+</html>

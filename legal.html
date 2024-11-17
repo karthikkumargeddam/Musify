@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Information for Users of Your Music Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Legal Information for Users of Musify</h1>
+        </header>
+        <main>
+            <ol id="legal-info-list"></ol>
+        </main>
+    </div>
+    <script src="script.js"></script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+.container {
+max-width: 800px;
+margin: 0 auto;
+padding: 40px;
+background-color: #ffffff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header {
+border-bottom: 1px solid #cccccc;
+padding-bottom: 20px;
+margin-bottom: 30px;
+}
+
+header h1 {
+font-size: 28px;
+margin-bottom: 0;
+color: #333;
+}
+
+main ol {
+font-size: 18px;
+line-height: 1.6;
+padding-left: 20px;
+color: #333;
+}
+
+main li {
+margin-bottom: 20px;
+border-left: 5px solid;
+padding-left: 15px;
+}
+
+main li:nth-child(odd), main li:nth-child(even), main li:last-child {
+border-color: #333;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const legalInfoList = document.getElementById("legal-info-list");
+
+    const legalInfo = [
+        "Respect the intellectual property rights of artists and content creators by only using music obtained legally on our platform.",
+        "Do not upload or share copyrighted music without the proper authorization from the copyright holder.",
+        "Understand that unauthorized use or distribution of copyrighted music may result in the suspension or termination of your account.",
+        "Review and adhere to our platform's terms of service, privacy policy, and any other relevant policies.",
+        "Be aware that your personal data may be collected, stored, and used in accordance with our privacy policy.",
+        "Report any instances of copyright infringement, inappropriate content, or other violations of our platform's policies using the reporting mechanisms provided.",
+        "Comply with any applicable local, national, and international laws while using our music application.",
+        "Do not engage in any activity that may harm, harass, or threaten other users or disrupt the normal functioning of the platform.",
+        "Keep your account information secure and notify us immediately if you suspect unauthorized access or activity.",
+        "Recognize that we reserve the right to modify or discontinue any features or services on our platform at any time."
+    ];
+
+    legalInfo.forEach(info => {
+        const listItem = document.createElement("li");
+        listItem.textContent = info;
+        legalInfoList.appendChild(listItem);
+    });
+});
+</script>
+</body>
+</html>
+
+
+
+

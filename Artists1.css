@@ -1,0 +1,85 @@
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            text-shadow: 1px 1px #ccc;
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .artist-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .artist-list li {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 10px 20px;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .artist-list li:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        .artist-list li:last-child {
+            border-bottom: none;
+        }
+
+        .artist-list li a {
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .artist-list li a:hover {
+            color: #0077cc;
+            text-decoration: underline;
+        }
+
+        .artist-list li:hover {
+            background-color: #f2f2f2;
+        }
+
+        .artist-list li:hover a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+
+            .artist-list li {
+                flex-direction: column;
+                padding: 10px 0;
+                border-bottom: none;
+            }
+        }
+    </style>

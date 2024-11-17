@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Musify</h1>
+    </header>
+    <main>
+      <p>Music is an art form that uses sound as its medium. It is created by arranging sounds in a structured way, often with rhythm and melody, to evoke emotion or convey a message. Music can be produced by a wide range of instruments and can be performed by individuals or groups. It has been an important part of human culture for thousands of years and is enjoyed by people all over the world.</p>
+      <p>There are many different genres of music, each with their own unique characteristics and styles. Some popular genres include rock, pop, classical, jazz, blues, hip hop, and country. Within each genre, there can be further sub-genres that cater to specific audiences or musical preferences.</p>
+      <p>Music can serve a variety of purposes, including entertainment, storytelling, communication, and expression of cultural identity. It can also have therapeutic benefits and is used in various forms of music therapy to help improve mental and physical health. In addition, music has been shown to have cognitive benefits, such as improving memory and enhancing creativity.</p>
+      <p>Advancements in technology have greatly impacted the music industry, making it easier for musicians to create and distribute their music. Digital audio workstations, electronic instruments, and online music platforms have revolutionized the way music is produced and consumed.</p>
+    </main>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  header {
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-image: linear-gradient(to right, #ff4b4b, #ffad4b);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+  }
+
+  main:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    margin-bottom: 1.25em;
+  }
+
+  a {
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: #ff4b4b;
+  }
+
+  footer {
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  footer a {
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  footer a:hover {
+    color: #ffad4b;
+  }
+
+  /* Light theme styles */
+  .light-theme {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+
+  .light-theme header {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .light-theme main {
+    background-color: #fff;
+  }
+
+  .light-theme a {
+    color: #333;
+  }
+
+  .light-theme footer {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* Dark theme styles */
+  .dark-theme {
+    background-color: #333;
+    color: #f2f2f2;
+  }
+
+  .dark-theme header {
+    background-color: #222;
+    color: #ccc;
+  }
+
+  .dark-theme main {
+    background-color: #444;
+    color: #ddd;
+  }
+
+  .dark-theme a {
+    color: #f2f2f2;
+  }
+
+  .dark-theme footer {
+    background-color: #222;
+    color: #ccc;
+  }
+</style>
+  <body class="light-theme">
+  <header>
+    <span id="theme-toggle" style="font-size: 16px; cursor: pointer;">&#x1F319;</span>
+  </header>
+  <main>
+  </main>
+  <footer>
+    <p>&copy; 2023 Musify.All rights reserved.</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-theme');
+      document.body.classList.toggle('light-theme');
+      themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '&#x1F31E;' : '&#x1F319;';
+    });
+  </script>
+
+    <script src="script.js"></script>
+   </body>
+</html>

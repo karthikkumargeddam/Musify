@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copyright Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6ab4e8, #ff9ed1, #ffa75c); /* Left to right gradient with blue, pink, and orange colors */
+background: linear-gradient(to bottom right, #6ab4e8, #ff9ed1, #ffa75c); /* Top left to bottom right gradient with blue, pink, and orange colors */
+        }
+        .content {
+            min-height: 100vh;
+            padding-bottom: 150px; /* Space for the footer */
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: none;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            background: none;
+            color: #fff;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-align: justify;
+            color: #fff;
+        }
+
+        footer {
+            background: none;
+            color: #fff;
+            padding: 15px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Rest of the CSS styles remain the same */
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to MusicVerse</h1>
+        <p>MusicVerse is a platform that brings together musicians from around the world to collaborate and create amazing music. Whether you're a singer, songwriter, or instrumentalist, MusicVerse provides the tools and community to connect with other talented artists and produce music that resonates with your audience.</p>
+        <p>Join MusicVerse today and embark on a musical journey like never before. Unleash your creativity, collaborate with fellow musicians, and share your unique sound with the world.</p>
+    </div>
+    <footer>
+                <div class="copyright-info">
+            <p>&copy; <span id="copyright-year"></span> MusicVerse. All rights reserved.</p>
+            <p>Unauthorized copying, reproduction, hiring, lending, public performance, and broadcasting of the content on this website is prohibited.</p>
+            <p>Copyright protection gives creators the exclusive right to reproduce, distribute, perform, display, and make derivative works based on their original works. This includes literary, musical, dramatic, choreographic, pictorial, graphic, sculptural, audiovisual, sound recordings, and architectural works.</p>
+            <p>By providing legal protection for creative works, copyright encourages innovation, creativity, and the dissemination of knowledge. If you believe that your copyright has been infringed, please consult a legal professional for advice.</p>
+        </div>
+   
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentYear = new Date().getFullYear();
+            document.getElementById("copyright-year").textContent = currentYear;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Play Button</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    html {
+      background: linear-gradient(135deg, #3498db, #e74c3c); /* Blue to red gradient */
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .playlist-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .playlist-card {
+      max-width: 250px;
+      width: calc(50% - 8px);
+      height: 100%; /* Added height property */
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      background: linear-gradient(135deg, #3498db, #e74c3c);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+      position: relative; /* Added position property */
+      margin-bottom: 16px; /* Added margin-bottom property */
+    }
+    
+    .playlist-card:hover {
+      transform: scale(1.05);
+    }
+    
+    .playlist-card img {
+      width: 100%;
+      height: 300px; /* Set a fixed height for the image */
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .playlist-card h3 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+      text-align: center; /* Center align the text */
+    }
+    
+    .playlist-card .play-button-container {
+      display: flex; /* Changed display property */
+      justify-content: center;
+      align-items: flex-end; /* Align play button to the bottom */
+      height: 100%; /* Set height to 100% */
+      position: relative; /* Added position property */
+    }
+
+    .playlist-card .play-button {
+      display: flex; /* Changed display property */
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      height: 56px;
+      background-color: #ff9900;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      color: #fff;
+      font-size: 24px;
+      transition: background-color 0.2s ease-in-out;
+      position: absolute; /* Added position property */
+      bottom: 16px; /* Added bottom property */
+      left: 50%; /* Added left property */
+      transform: translateX(-50%); /* Added transform property */
+      overflow: hidden;
+      z-index: 2; /* Added z-index property */
+    }
+
+    .playlist-card .play-button:before,
+    .playlist-card .play-button:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .playlist-card .play-button:before {
+      width: 0;
+      height: 0;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      border-left: 20px solid #fff;
+    }
+
+    .playlist-card .play-button:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+
+    .playlist-card .play-button:hover {
+      background-color: #ff8c00;
+    }
+    .play-button.move {
+  animation: moveButton 0.5s ease-in-out;
+}
+
+@keyframes moveButton {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <h1>Top Artists in India</h1>
+  
+  <div class="playlist-container">
+    <div class="playlist-card">
+      <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTpZFWekfPmInDiN1YaiEve8aj68Z9pj6q0UyYbCkxJ543L6mtP" alt="Artist 1">
+      <h3>A.R Rahman</h3>
+      <div class="play-button-container">
+             <a href="A.R.Rahman.html" class="play-button"></a>
+      </div>
+    </div>
+      <div class="playlist-card">
+      <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT9sjs6FkdjxC1hpNxNa0GGgqKKWON6apPn2NjJR1f8FjY2fFK2" alt="Artist 2">
+       <h3>Arman Malik</h3>
+      <div class="play-button-container">
+                     <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+   <div class="playlist-card">
+      <img src="https://static.toiimg.com/thumb/61430480.cms?width=170&height=240" alt="Artist 3">
+       <h3>Anirudh Ravichander</h3>
+       <div class="play-button-container">
+                      <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+    <div class="playlist-card">
+      <img src="https://media.insider.in/image/upload/c_crop,g_custom/v1669033779/ds4bbdue5v8qcakdth4c.jpg" alt="Artist 1">
+      <h3>Shreya Goshal</h3>
+             <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+  
+    <div class="playlist-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Arijit_5th_GiMA_Awards.jpg/220px-Arijit_5th_GiMA_Awards.jpg" alt="Artist 2">
+      <h3>Arjith Singh</h3>
+                    <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+  
+    <div class="playlist-card">
+      <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQenceBLVEGbcOM3-DdHnJZ1cQs-goZ9DKcs_P2mpwiD7Yq35ug" alt="Artist 3">
+      <h3>Sonu Nigam</h3>
+                           <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+    <div class="playlist-card">
+      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR0AWP9KLnWdBNV90KRUAJknAib0BDgGwQ5mK43cNGd87Stk5Lh" alt="Artist 3">
+      <h3>Yo Yo Honey Singh</h3>
+                                 <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+    <div class="playlist-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv1V9mjDV5uBjffxE9fY8Ab_elFbh4lE5JgVuQaeV3YWZ1ivKa" alt="Artist 2">
+      <h3>Pawan Singh</h3>
+        <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+  
+    <div class="playlist-card">
+      <img src="https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcRIjWr1Bax9Wrdc7VzSAc50qwyw-QaobJ4jv-A7JtM2G3MPQo2BQ2LFYlq7CoPFcraE" alt="Artist 3">
+      <h3>Neha Kakkar</h3>
+        <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+    <div class="playlist-card">
+      <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcTXOoNGnsjPdY3vhocApsS-U1xaL3sZrBJaCpdjAs9tec6bKg9l_zwHYrhw8odzdCRD" alt="Artist 3">
+      <h3>Udit Narayan</h3>
+      <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+         <div class="playlist-card">
+      <img src="https://images.news18.com/ibnlive/uploads/2022/07/sukhvinder-singh.jpg" alt="Artist 3">
+      <h3>Sukhwinder Singh</h3>
+       <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+    <div class="playlist-card">
+      <img src="https://imagevars.gulfnews.com/2020/08/14/20200814-S.P.-Balasubrahmanyam_173ed1c626a_large.jpg" alt="Artist 3">
+      <h3>SP Balasubramanyam</h3>
+        <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+     <div class="playlist-card">
+      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRpm_DSClGo5QY2gkVATkhlSAtlmL4YXkszY-IjLBm8tsZP5SYd" alt="Artist 3">
+      <h3>Devi Sri Prasad</h3>
+       <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+         <div class="playlist-card">
+      <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRxqZICVcO1WwajOOPSw1sIfcRNCG2CDA5LVOswSJaUw0P_MREW" alt="Artist 3">
+      <h3>M.M Keeravani</h3>
+               <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+    <div class="playlist-card">
+      <img src="https://assets.thehansindia.com/h-upload/2021/03/13/1600x960_1037111-thaman.jpg" alt="Artist 3">
+      <h3>S Thaman</h3>
+               <div class="play-button-container">
+             <a href="https://example.com" class="play-button"></a>
+      </div>
+    </div>
+        <div class="playlist-card">
+      <img src="https://images.news18.com/telugu/uploads/2021/07/Mani-sharma.jpg" alt="Artist 3">
+      <h3>Mani Sharma</h3>
+        
+    </div>
+  </div>
+  
+  <!-- Add more playlist cards as needed -->
+  
+  <script>
+    const playButtons = document.querySelectorAll('.play-button');
+
+playButtons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    button.classList.add('move');
+  });
+});
+
+  </script>
+</body>
+</html>

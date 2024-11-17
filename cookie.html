@@ -1,0 +1,20 @@
+<html>
+<head>
+<script>
+document.cookie = "volume=50; expires=Thu, 30 Apr 2024 23:59:59 UTC; path=/";
+function getCookie(name) {
+  const cookies = document.cookie.split(';');
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+    if (cookie.startsWith(name + '=')) {
+      return cookie.substring(name.length + 1);
+    }
+  }
+  return null;
+}
+const volume = getCookie('volume');
+console.log(volume); // prints the value of the "volume" cookie
+document.cookie = "volume=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+</script>
+</head>
+</html>

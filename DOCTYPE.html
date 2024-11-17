@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-rQ7QSLMOrtQ3/4yoB5P/NJ6oYkR99OyyUAMhljjL1BYWZKlSN9vI3kHkjFIMw+6K1YZpAqRLQTSgeAfba6bV9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <title>Music Player</title>
+  <style>
+    /* CSS styles for the player */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    
+    .box {
+      width: 45%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    
+    .box-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .box-content {
+      font-size: 14px;
+    }
+    
+    /* CSS styles for the music player */
+    .player-container {
+      margin-top: 40px;
+    }
+    
+    .song-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .song-list-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .song-info {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+    
+    .song-info img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .song-info-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .song-info-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .song-info-artist {
+      font-size: 14px;
+      color: #777;
+    }
+    
+    .play-button {
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .play-symbol,
+    .pause-symbol {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      color: #fff; /* You can change the color here */
+    }
+    
+    /* Hide the play button for the first song */
+    .song-list-item:first-child .play-button {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <div class="box-title">Box 1</div>
+      <div class="box-content">A.R Rahman Songs</div>
+      <div class="player-container">
+        <ul class="song-list">
+          <li class="song-list-item">
+            <div class="song-info">
+              <img src="https://m.media-amazon.com/images/M/MV5BNWFjNGIxYWUtZDFmNy00NzRkLThkZTctYTA3NTAzNDg3NTBlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_UY1200_CR85,0,630,1200_AL_.jpg" alt="Song Image">
+              <div class="song-info-text">
+                <div class="song-info-title">Maa Tujhe Salaam</div>
+                <div class="song-info-artist">A.R Rahman</div>
+              </div>
+            </div>
+            <audio>
+              <source src="maa_tujhe_salaam.mp3" type="audio/mp3">
+            </audio>
+          </li>
+          <li class="song-list-item">
+            <div class="song-info">
+              <img src="https://m.media-amazon.com/images/M/MV5BNWFjNGIxYWUtZDFmNy00NzRkLThkZTctYTA3NTAzNDg3NTBlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_UY1200_CR85,0,630,1200_AL_.jpg" alt="Song Image">
+              <div class="song-info-text">
+                <div class="song-info-title">Roja</div>
+                <div class="song-info-artist">A.R Rahman</div>
+              </div>
+            </div>
+            <div class="play-button">
+              <i class="fas fa-play play-symbol"></i>
+              <i class="fas fa-pause pause-symbol"></i>
+            </div>
+            <audio>
+              <source src="roja.mp3" type="audio/mp3">
+            </audio>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-title">Box 2</div>
+      <div class="box-content">R.D Burman Songs</div>
+      <div class="player-container">
+        <ul class="song-list">
+          <li class="song-list-item">
+            <div class="song-info">
+              <img src="https://m.media-amazon.com/images/M/MV5BNWFjNGIxYWUtZDFmNy00NzRkLThkZTctYTA3NTAzNDg3NTBlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_UY1200_CR85,0,630,1200_AL_.jpg" alt="Song Image">
+              <div class="song-info-text">
+                <div class="song-info-title">Gulabi Aankhen</div>
+                <div class="song-info-artist">R.D Burman</div>
+              </div>
+            </div>
+            <div class="play-button">
+              <i class="fas fa-play play-symbol"></i>
+              <i class="fas fa-pause pause-symbol"></i>
+            </div>
+            <audio>
+              <source src="gulabi_aankhen.mp3" type="audio/mp3">
+            </audio>
+          </li>
+          <li class="song-list-item">
+            <div class="song-info">
+              <img src="https://m.media-amazon.com/images/M/MV5BNWFjNGIxYWUtZDFmNy00NzRkLThkZTctYTA3NTAzNDg3NTBlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_UY1200_CR85,0,630,1200_AL_.jpg" alt="Song Image">
+              <div class="song-info-text">
+                <div class="song-info-title">Chura Liya Hai Tumne Jo Dil Ko</div>
+                <div class="song-info-artist">R.D Burman</div>
+              </div>
+            </div>
+            <div class="play-button">
+              <i class="fas fa-play play-symbol"></i>
+              <i class="fas fa-pause pause-symbol"></i>
+            </div>
+            <audio>
+              <source src="chura_liya_hai_tumne.mp3" type="audio/mp3">
+            </audio>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    // JavaScript code for controlling the player
+    const playButtons = document.querySelectorAll('.play-button');
+    const pauseSymbols = document.querySelectorAll('.pause-symbol');
+    const audioElements = document.querySelectorAll('audio');
+
+    playButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        pauseAllSongs();
+        playSong(index);
+      });
+    });
+
+    function pauseAllSongs() {
+      pauseSymbols.forEach(symbol => symbol.style.display = 'none');
+      audioElements.forEach(audio => audio.pause());
+    }
+
+    function playSong(index) {
+      pauseSymbols[index].style.display = 'block';
+      audioElements[index].play();
+    }
+  </script>
+</body>
+</html>

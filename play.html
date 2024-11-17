@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .play-button {
+      width: 50px;
+      height: 50px;
+      background-color: #f00; /* You can change the color here */
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .play-symbol {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background-color: #fff; /* You can change the color here */
+    }
+
+    .play-symbol::before,
+    .play-symbol::after {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 12px;
+      background-color: #000; /* You can change the color here */
+    }
+
+    .play-symbol::before {
+      top: 0;
+      left: 0;
+    }
+
+    .play-symbol::after {
+      top: 0;
+      right: 0;
+    }
+
+    .paused::before,
+    .paused::after {
+      width: 0;
+      height: 0;
+      border-left: 6px solid #000; /* You can change the color here */
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="play-button" onclick="playPause()">
+    <div class="play-symbol"></div>
+  </div>
+
+  <script>
+    var isPlaying = false;
+    var playButton = document.querySelector('.play-button');
+    var playSymbol = document.querySelector('.play-symbol');
+
+    function playPause() {
+      if (isPlaying) {
+        // Pause functionality
+        playButton.style.backgroundColor = "#f00"; // Change back to original color
+        playSymbol.classList.remove("paused");
+        isPlaying = false;
+        console.log("Paused");
+      } else {
+        // Play functionality
+        playButton.style.backgroundColor = "#0f0"; // Change to a different color when playing
+        playSymbol.classList.add("paused");
+        isPlaying = true;
+        console.log("Playing");
+      }
+    }
+  </script>
+</body>
+</html>

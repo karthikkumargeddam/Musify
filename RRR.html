@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Application</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-iBBGR+zYl8E9LyyWT230TpS4UqD6TcO+JAMF6y4m6DdG6+Q2xOC0BzXJ2QIV+OzJ" crossorigin="anonymous" />
+    <!-- Custom CSS -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+      body,
+      html {
+        height: 100%;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+        background-image: url("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/fboop1y3xhlk0rve_1643875545.jpeg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+
+      }
+
+      ::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: -1;
+      }
+
+      .main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        width: 80%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      h2, h3 {
+        margin-bottom: 10px;
+        color: #f8f9fa;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+      }
+
+     .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0);
+        transition: 0.3s;
+        background-color: rgba(68, 68, 68, 0);
+        color: #f8f9fa;
+        border-radius: 8px;
+      }
+      .card:hover {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+      }
+
+      .btn-primary {
+        background-color: #222222;
+        border-color: #222222;
+      }
+
+      .btn-primary:hover {
+        background-color: #111111;
+        border-color: #111111;
+      }
+
+       .list-group-item {
+        background-color: rgba(68, 68, 68, 0.1);
+        border: none;
+      }
+
+      .download-link {
+        float: right;
+        margin-top: -20px;
+        color: #f8f9fa;
+      }
+
+      audio {
+        width: 100%;
+        outline: none;
+        background-color: rgba(68,68, 68, 0.5);
+        border-radius: 5px;
+     }
+
+.song-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.list-group-item:hover {
+background-color: rgba(68, 68, 68, 0.2);
+cursor: pointer;
+}
+
+.list-group-item:hover .song-title {
+text-decoration: underline;
+}
+.card-body {
+  padding: 20px;
+}
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.list-group-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+}
+.custom-card {
+  width: 20vw; /* Adjust the percentage value as needed */
+}
+background: linear-gradient(to bottom, #333333, #222222);
+
+.download-link:hover {
+  color: #ffc107;
+}
+audio::-webkit-media-controls-play-button {
+    filter: grayscale(100%) invert(100%) hue-rotate(30deg);
+    background-color: #E5E5E5;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.list-group::-webkit-scrollbar {
+  width: 8px;
+  background-color: #333333;
+}
+
+.list-group::-webkit-scrollbar-thumb {
+  background-color: #ffc107;
+  border-radius: 10px;
+}
+
+#now-playing {
+  color: #ffc107;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid #ffc107;
+  padding: 10px;
+}
+
+.card-title {
+  background-color: #ffc107;
+  color: #222222;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-current-time-display {
+  border-radius: 5px;
+}
+.actions {
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.btn-like,
+.btn-share {
+  background: none;
+  border: none;
+  color: #f8f9fa;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.btn-like:hover,
+.btn-share:hover {
+  color: #ffc107;
+}
+ :root {
+  --gradient-colors: #9400D3, #4B0082, #0000FF, #00FF00, #FFFF00, #FF7F00, #FF0000;
+  --box-position: -2px; 
+  --background-size: 200% 200%;
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+body.playing {
+    background: radial-gradient(circle at center, var(--gradient-colors)), #000;
+    background-size: var(--background-size);
+    animation: gradient 0.05s ease infinite;
+    box-shadow: inset 0 0 50px #000;
+    overflow: hidden;
+    position: relative;
+}
+
+body.playing::before, body.playing::after {
+    content: "";
+    position: absolute;
+    top: var(--box-position); 
+    bottom: var(--box-position); 
+    left: var(--box-position); 
+    right: var(--box-position);
+}
+
+body.playing::before {
+    z-index: -1;
+    background: linear-gradient(45deg, var(--gradient-colors));
+    background-size: var(--background-size);
+    filter: blur(30px);
+    animation: gradient 10s ease infinite;
+}
+
+body.playing::after {
+    z-index: -2;
+    background: black;
+}
+
+
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  </head>
+  <body>
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="main-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Rocking RRR</h2>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <span class="song-title">RRR Playlist</span>
+                      <div class="download-link">
+                        <a href="https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3" download><i class="fas fa-download"></i></a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <div class = "row">
+            <div class="col-md-9 mb-4">
+              <div class="card">
+                  <div class="card-body">
+                    <div class = "card custom-card">
+                  <h3 class="card-title">Rocking Music</h3>
+                  <div id="now-playing"></div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <span class="song-title">NaatuNaatu Song</span>
+                    <audio controls>
+                        <source src="C:\Users\karth\Downloads\Naatu Naatu Full Video Song (Telugu) [4K] - RRR - NTR,Ram Charan - MM Keeravaani - SS Rajamouli (1).mp3" type="audio/mpeg" />
+                      </audio>
+                    </li>
+                    <li class="list-group-item">
+                      <span class="song-title">Dosti Song</span>
+                      <audio controls>
+                        <source src="C:\Users\karth\Downloads\Dosti Full Video Song (Telugu) - RRR - NTR, Ram Charan - MM Keeravaani - SS Rajamouli-Kaala Bhairava.mp3" type="audio/mpeg" />
+                      </audio>
+                    </li>
+                    <li class="list-group-item">
+                      <span class="song-title">Ethara janda Song</span>
+                      <audio controls>
+                        <source src="C:\Users\karth\Downloads\videoplayback.mp3" type="audio/mpeg" />
+                      </audio>
+                    </li>
+                    <li class="list-group-item">
+                      <span class="song-title">Komuram Bheemudo Song</span>
+                      <audio controls>
+                        <source src="C:\Users\karth\Downloads\videoplayback (1).mp3" type="audio/mpeg" />
+                      </audio>
+                    </li>
+                    <li class="list-group-item">
+                      <span class="song-title">Roar of RRR Song</span>
+                      <audio controls>
+                        <source src="C:\Users\karth\Downloads\videoplayback (2).mp3" type="audio/mpeg" />
+                      </audio>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+
+</div>
+</div>
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <script>
+    let song;
+    let amp;
+
+function preload() {
+    song = loadSound("C:\Users\karth\Downloads\videoplayback (9).mp3");  // replace with the path to your song
+}
+
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    song.play();
+
+    amp = new p5.Amplitude();
+}
+
+function draw() {
+    background(amp.getLevel() * 255);
+}
+     function savePlaybackState() {
+    localStorage.setItem("currentAudio", JSON.stringify({ currentTime: this.currentTime, src: this.currentSrc }));
+      const songTitle = this.closest('.list-group-item').querySelector('.song-title').textContent;
+  document.getElementById('now-playing').textContent = `Now playing: ${songTitle}`;
+}
+  function restorePlaybackState(audioElements) {
+    const savedState = JSON.parse(localStorage.getItem("currentAudio"));
+    if (savedState) {
+      const audioElement = audioElements.find((audio) => audio.currentSrc === savedState.src);
+      if (audioElement) {
+        audioElement.currentTime = savedState.currentTime;
+        audioElement.play();
+      }
+    }
+  }
+      document.addEventListener("DOMContentLoaded", function () {
+        const audioElements = document.querySelectorAll("audio");
+        let currentAudioIndex = 0;
+        const nowPlayingElement = document.getElementById("now-playing");
+        const bodyElement = document.querySelector('body');
+
+        function playNextAudio() {
+           currentAudioIndex++;
+           if (currentAudioIndex >= audioElements.length) {
+               currentAudioIndex = 0;
+           }
+           audioElements[currentAudioIndex].play();
+        }
+         audioElements.forEach((audioElement,index) => {
+          audioElement.addEventListener("play", (e) => {
+            currentAudioIndex = index;
+            document.body.classList.add("playing");
+            bodyElement.classList.add('playing');
+            audioElements.forEach((otherAudio) => {
+              if (otherAudio !== audioElement) {
+                 otherAudio.pause();
+            }
+         });
+               const songTitle = audioElement.parentElement.querySelector(".song-title").innerText;
+      nowPlayingElement.innerText = "Now Playing: " + songTitle;
+
+      });
+               audioElement.addEventListener("pause", () => {
+            bodyElement.classList.remove('playing');
+                  document.body.classList.remove("playing");
+ // Remove playing class when a song is paused
+        });
+
+      audioElement.addEventListener("timeupdate", savePlaybackState);
+      audioElement.addEventListener("ended", playNextAudio);
+
+    });
+
+    restorePlaybackState(audioElements);
+  });
+  document.querySelectorAll('.btn-like').forEach((btn) => {
+    btn.addEventListener('click', function () {
+      this.querySelector('i').classList.toggle('fas');
+      this.querySelector('i').classList.toggle('far');
+    });
+  });
+
+  document.querySelectorAll('.btn-share').forEach((btn) => {
+    btn.addEventListener('click', function () {
+      const songTitle = this.getAttribute('data-song');
+      const shareText = `Check out this amazing song: ${songTitle}`;
+
+      if (navigator.share) {
+        navigator
+          .share({
+            title: songTitle,
+            text: shareText,
+            url: window.location.href,
+          })
+          .catch((error) => console.error('Error sharing:', error));
+      } else {
+        alert(`Share this song: ${shareText}`);
+      }
+    });
+  });
+</script>
+  </body>
+</html>
+

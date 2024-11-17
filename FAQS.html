@@ -1,0 +1,140 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Music App - FAQs</title>
+   <style>
+  body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #3498db, #e74c3c); /* Blue to red gradient */
+}
+
+ header {
+   background: linear-gradient(135deg, #3498db, #e74c3c); /* Blue to red gradient */
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border-bottom: 3px solid #000;
+}
+
+main {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #3498db, #e74c3c);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.faq-section {
+  margin: 2rem 0;
+}
+
+.faq {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.faq-question {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+  background-color: #e0e0e0;
+}
+
+.faq-answer {
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.faq:last-child {
+  border-bottom: none;
+}
+</style>
+</head>
+  <header>
+    <h1>MusicVerse FAQs</h1>
+  </header>
+  <main>
+    <section id="faq-section">
+      <!-- Add your FAQ questions and answers here -->
+      <div class="faq">
+        <h2 class="faq-question">How do I create an account?</h2>
+        <p class="faq-answer">To create an account, click on the "Sign Up" button on the homepage and fill in your details. After submitting the form, you will receive a confirmation email. Click the link in the email to verify your account.</p>
+      </div>
+      <div class="faq">
+        <h2 class="faq-question">How do I reset my password?</h2>
+        <p class="faq-answer">To reset your password, click the "Forgot Password" link on the login page. Enter your email address, and we will send you a link to reset your password.</p>
+      </div>
+      <div class="faq">
+        <h2 class="faq-question">Can I import my playlists from other music services?</h2>
+        <p class="faq-answer">Yes, you can import your playlists from supported music services. Navigate to the "Import Playlists" section in the settings and follow the instructions.</p>
+      </div>
+      <div class="faq">
+        <h2 class="faq-question">How do I create a playlist?</h2>
+        <p class="faq-answer">To create a playlist, click on the "Create Playlist" button in the "My Playlists" section. Give your playlist a name, and start adding songs by searching for them or selecting them from your library.</p>
+      </div>
+      <div class="faq">
+        <h2 class="faq-question">How do I share a playlist with friends?</h2>
+        <p class="faq-answer">To share a playlist, open the playlist and click on the "Share" button. You can then choose to share the playlist via email, social media, or by copying the link.</p>
+      </div>
+      <div class="faq">
+        <h2 class="faq-question">Can I listen to music offline?</h2>
+        <p class="faq-answer">Yes, our application allows you to download songs for offline listening. To download a song, click the "Download" button next to the song title. Note that this feature may require a subscription to our premium service.</p>
+      </div>
+      <div class="faq">
+        <h2 class="faq-question">What audio quality does the app support?</h2>
+        <p class="faq-answer">The app supports various audio qualities, ranging from standard quality (128 kbps) to high-quality (320 kbps). You can adjust the audio quality in the app settings.</p>
+      </div>
+      <div class="faq">
+        <h2 class="faq-question">How do I cancel my premium subscription?</h2>
+        <p class="faq-answer">To cancel your premium subscription, navigate to the "Billing and Subscription" section in the settings. Click the "Cancel Subscription" button and follow the instructions.</p>
+      </div>
+      <div class="faq">
+        <h2 class="faq-question">Is the app available on multiple devices?</h2>
+<p class="faq-answer">Yes, our app is available on various devices, including smartphones, tablets, and desktop computers. Simply log in with your account to access your music library and playlists across all your devices.</p>
+</div>
+<div class="faq">
+<h2 class="faq-question">How can I contact customer support?</h2>
+<p class="faq-answer">If you need assistance, please visit our "Help" section or contact our customer support team via the "Contact Us" page. Our team is available to help with any issues or questions you may have.</p>
+</div>
+</section>
+
+  </main>
+  <script src="script.js"></script>
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+  let faqQuestions = document.getElementsByClassName('faq-question');
+  
+  for (let i = 0; i < faqQuestions.length; i++) {
+    faqQuestions[i].addEventListener('click', function() {
+      this.classList.toggle('active');
+      let answer = this.nextElementSibling;
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+      } else {
+        answer.style.display = 'block';
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

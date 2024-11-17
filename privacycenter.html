@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Center - Music Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Privacy Center - Musify</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Privacy Policy</h2>
+        <p>
+          This privacy policy explains how we collect, use, and share your
+          personal information in connection with our music application. By
+          using our application, you agree to the terms of this privacy policy.
+        </p>
+        <p>
+          We collect the following types of information from you:
+          <ul>
+            <li>Your name and email address</li>
+            <li>Your location information</li>
+            <li>Your listening history</li>
+            <li>Your search queries</li>
+          </ul>
+        </p>
+        <p>
+          We use this information to:
+          <ul>
+            <li>Provide you with personalized recommendations</li>
+            <li>Improve our application</li>
+            <li>Send you promotional offers and updates</li>
+          </ul>
+        </p>
+        <p>
+          We may share your information with third-party service providers to
+          help us provide our services. We do not sell your personal information
+          to third parties.
+        </p>
+      </section>
+      <section>
+        <h2>Data Management</h2>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </section>
+  <section>
+    <h2>Data Sharing Settings</h2>
+    <form>
+      <label for="sharing">Allow data sharing with third-party service
+        providers:</label>
+      <input type="checkbox" id="sharing" name="sharing" checked />
+
+      <button type="submit">Save Changes</button>
+</form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Musify</p>
+    </footer>
+    <script src="script.js"></script>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+header {
+background-color: #333;
+color: #fff;
+padding: 20px;
+}
+
+header h1 {
+margin: 0;
+}
+
+main {
+padding: 20px;
+}
+
+section {
+margin-bottom: 40px;
+}
+
+h2 {
+margin-top: 0;
+}
+
+ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+label {
+display: block;
+margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="checkbox"] {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+margin-bottom: 20px;
+}
+
+button[type="submit"] {
+background-color: #333;
+color: #fff;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button[type="submit"]:hover {
+background-color: #666;
+}
+
+footer {
+background-color: #333;
+color: #fff;
+padding: 20px;
+text-align: center;
+}
+
+footer p {
+margin: 0;
+}
+</style>
+
+<script>
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = form.elements.name.value;
+  const email = form.elements.email.value;
+  const password = form.elements.password.value;
+  // save user's data management preferences
+  const sharing = form.elements.sharing.checked;
+  console.log(name, email, password, sharing);
+});
+</script>
+</body>
+</html>
+

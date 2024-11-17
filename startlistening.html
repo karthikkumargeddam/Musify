@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Playlist with Sound Waves</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .song-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .song-item:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .song-title {
+            margin: 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        audio {
+            display: block;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        canvas {
+            display: block;
+            margin-top: 10px;
+            width: 100%;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Music Playlist with Sound Waves</h1>
+    <div class="song-item">
+        <h3 class="song-title">Song 1 - Song Name 1</h3>
+        <audio id="audio1" controls>
+            <source src="C:\Users\karth\Downloads\videoplayback (32).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <canvas id="canvas1"></canvas>
+    </div>
+    <div class="song-item">
+        <h3 class="song-title">Song 2 - Song Name 2</h3>
+        <audio id="audio2" controls>
+            <source src="song2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <canvas id="canvas2"></canvas>
+    </div>
+    <div class="song-item">
+        <h3 class="song-title">Song 3 - Song Name 3</h3>
+        <audio id="audio3" controls>
+            <source src="song3.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <canvas id="canvas3"></canvas>
+    </div>
+    <!-- Add more songs as needed -->
+<script>
+    function createSoundWaveVisualization(audioElement, canvasElement) {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioCtx.createAnalyser();
+        const source = audioCtx.createMediaElementSource(audioElement);
+        source.connect(analyser);
+        analyser.connect(audioCtx.destination);
+
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Float32Array(bufferLength);
+
+        const canvasCtx = canvasElement.getContext('2d');
+        canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+          for (var i = 0; i < bufferLength; i++) {
+    const frequency = analyser.getFrequencyData(i);
+    const height = Math.abs(frequency) * canvasElement.height;
+    canvasCtx.lineTo(i, height);
+  }
+
+  canvasCtx.stroke();
+}
+createSoundWaveVisualization(document.getElementById('audio1'), document.getElementById('canvas1'));
+</script>
+</body>
+</html>

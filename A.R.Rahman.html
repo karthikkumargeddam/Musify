@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-rQ7QSLMOrtQ3/4yoB5P/NJ6oYkR99OyyUAMhljjL1BYWZKlSN9vI3kHkjFIMw+6K1YZpAqRLQTSgeAfba6bV9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <title>Music Player</title>
+</head>
+<style>
+  /* CSS styles for the player */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .box {
+    width: 45%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background: conic-gradient(from 180deg, #ff0000, #00ff00, #0000ff, #ffff00);
+    background-clip: padding-box;
+    color: #fff;
+  }
+
+  .box-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background: conic-gradient(from 180deg, #ff0000, #00ff00, #0000ff, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .box-content {
+    font-size: 16px;
+    background: conic-gradient(from 180deg, #ff0000, #00ff00, #0000ff, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* CSS styles for the music player */
+  .player-container {
+    margin-top: 40px;
+    background: conic-gradient(from 180deg, #ff0000, #00ff00, #0000ff, #ffff00);
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .song-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .song-list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    background: conic-gradient(from 180deg, #ff0000, #00ff00, #0000ff, #ffff00);
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  .song-list-item:hover {
+    background-color: #f8f8f8;
+  }
+
+  .song-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .song-info img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .song-info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .song-info-title {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .song-info-artist {
+    font-size: 14px;
+    background: conic-gradient(from 180deg, #ff0000, #00ff00, #0000ff, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .play-button {
+    width: 50px;
+    height: 50px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .play-button:hover {
+    transform: scale(1.1);
+  }
+
+  .play-symbol,
+  .pause-symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+
+  .pause-symbol {
+    display: none;
+  }
+
+  .song-list-item.active .play-symbol {
+    display: none;
+  }
+
+  .song-list-item.active .pause-symbol {
+    display: block;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <div class="box-title">Box 1</div>
+      <div class="box-content">A.R Rahman Songs</div>
+      <div class="player-container">
+        <ul class="song-list">
+          <li class="song-list-item">
+            <div class="song-info">
+              <img src="https://m.media-amazon.com/images/M/MV5BNWFjNGIxYWUtZDFmNy00NzRkLThkYWItZjBiNTJlNGE3MTA0XkEyXkFqcGdeQXVyODE0NjUxNzY@._V1_FMjpg_UX1000_.jpg">
+              <div class="song-info-text">
+                <div class="song-info-title">chaiyya chaiyya song</div>
+                <div class="song-info-artist">A.R Rahman</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="C:\Users\karth\Downloads\videoplayback (40).mp3" type="audio/mpeg" data-name="Song 1">
+            </audio>
+              <div class="play-button" onclick="playPause()">
+    <div class="play-symbol"><i class="fas fa-play"></i></div>
+    <div class="pause-symbol"><i class="fas fa-pause"></i></div>
+  </div>
+         </li>
+          <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                    <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                    <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                      <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="box">
+      <div class="box-title">Box 2</div>
+      <div class="box-content">Sed et blandit augue, nec faucibus quam.</div>
+      <div class="player-container">
+        <ul class="song-list">
+          <li class="song-list-item">
+            <div class="song-info">
+              <img src="song3.jpg" alt="Song 3">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 3</div>
+                <div class="song-info-artist">Artist 3</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song3.mp3" type="audio/mpeg" data-name="Song 3">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+          <li class="song-list-item">
+            <div class="song-info">
+              <img src="song4.jpg" alt="Song 4">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 4</div>
+                <div class="song-info-artist">Artist 4</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song4.mp3" type="audio/mpeg" data-name="Song 4">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                      <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+                     <li class="song-list-item">
+            <div class="song-info">
+              <img src="song2.jpg" alt="Song 2">
+              <div class="song-info-text">
+                <div class="song-info-title">Song 2</div>
+                <div class="song-info-artist">Artist 2</div>
+              </div>
+            </div>
+            <audio class="music-player" controls>
+              <source src="song2.mp3" type="audio/mpeg" data-name="Song 2">
+            </audio>
+            <button class="play-button">Play</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ <script>
+  // JavaScript code to control the player
+  var audioPlayers = document.querySelectorAll('.music-player');
+  var playButtons = document.querySelectorAll('.play-button');
+
+  playButtons.forEach(function(playButton, index) {
+    playButton.addEventListener('click', function() {
+      var audioPlayer = audioPlayers[index];
+      if (audioPlayer.paused) {
+        pauseAllPlayers();
+        audioPlayer.play();
+        playButton.textContent = 'Pause';
+      } else {
+        audioPlayer.pause();
+        playButton.textContent = 'Play';
+      }
+    });
+
+        var isPlaying = false;
+    var playButton = document.querySelector('.play-button');
+    var playSymbol = document.querySelector('.play-symbol');
+    var pauseSymbol = document.querySelector('.pause-symbol');
+
+    function playPause() {
+      if (isPlaying) {
+        // Pause functionality
+        playSymbol.style.display = 'block';
+        pauseSymbol.style.display = 'none';
+        isPlaying = false;
+        console.log("Paused");
+      } else {
+        // Play functionality
+        playSymbol.style.display = 'none';
+        pauseSymbol.style.display = 'block';
+        isPlaying = true;
+        console.log("Playing");
+      }
+    }
+
+  audioPlayers.forEach(function(audioPlayer, index) {
+    audioPlayer.addEventListener('play', function() {
+      var currentSongName = '';
+      var sourceElement = audioPlayer.querySelector('source');
+      currentSongName = sourceElement.getAttribute('data-name');
+      console.log('Now playing: ' + currentSongName);
+    });
+  });
+
+  function pauseAllPlayers() {
+    audioPlayers.forEach(function(player) {
+      player.pause();
+      var playButton = player.parentElement.querySelector('.play-button');
+      playButton.textContent = 'Play';
+    });
+  }
+</script>
+
+</body>
+</html>
